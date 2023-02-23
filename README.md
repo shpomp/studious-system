@@ -1,4 +1,4 @@
-# 🦉 markdown_previewer
+# 🍠 markdown_previewer
 
 🔗 [deployment]()
 

@@ -1,3 +1,4 @@
+import { marked } from "marked";
 import React, { useState } from "react";
 
 import "./App.css";
@@ -10,11 +11,37 @@ import "./App.css";
 
 export const App = () => {
   const [loading, setLoading] = useState(false);
+  const [markdown, setMarkdown] = useState(`
+  # React Markdown Previewer!
+
+  ## This is a sub-heading...
+      
+  Or... wait for it... **_both!_**
+    
+  And feel free to go crazy ~~crossing stuff out~~.
+        
+  There's also [links](https://ashusingh.me), and
+  > Block Quotes!
+       
+    
+      `);
 
   return (
     <div className="App">
-      <textarea id="editor"></textarea>
-      <div id="preview"></div>
+      <textarea
+        id="editor"
+        value={markdown}
+        onChange={(e) => {
+          setMarkdown(e.target.value);
+        }}
+      ></textarea>
+      <div id="preview">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: marked(markdown),
+          }}
+        ></div>
+      </div>
     </div>
   );
 };
