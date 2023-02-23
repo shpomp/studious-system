@@ -9,7 +9,6 @@ import "./App.css";
 // a blockquote, an image, and bolded text.
 
 export const App = () => {
-  const [loading, setLoading] = useState(false);
   const [markdown, setMarkdown] = useState(`
   # hej!
 
