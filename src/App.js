@@ -5,38 +5,49 @@ import "./App.css";
 
 // When my markdown previewer first loads,
 // the default text in the #editor field should contain valid markdown that represents
-// at least one of each of the following elements: a heading element (H1 size),
-// a sub heading element (H2 size), a link, inline code, a code block, a list item,
+// at least one of each of the following elements:   a list item,
 // a blockquote, an image, and bolded text.
 
 export const App = () => {
   const [loading, setLoading] = useState(false);
   const [markdown, setMarkdown] = useState(`
-  # React Markdown Previewer!
+  # hej!
 
-  ## This is a sub-heading...
-      
-  Or... wait for it... **_both!_**
+  ## This is a markdown previewer!
+ 
+Try typing some **_markdown_**.
+    Type some \`code\` or try a 
     
-  And feel free to go crazy ~~crossing stuff out~~.
+    \`\`\`js
+    // code block.
+    \`\`\`.
+    
+  Feel free to ~~cross stuff out~~.
+  - Make a list! 
         
-  There's also [links](https://ashusingh.me), and
-  > Block Quotes!
-       
-    
+ [freeCodeCamp](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-markdown-previewer) is pretty cool.
+  
+ > You should check it out!
+
+ Gif time!
+ ![](https://media.giphy.com/media/DhstvI3zZ598Nb1rFf/giphy-downsized.gif)
       `);
 
   return (
     <div className="App">
-      <textarea
-        id="editor"
-        value={markdown}
-        onChange={(e) => {
-          setMarkdown(e.target.value);
-        }}
-      ></textarea>
-      <div id="preview">
+      <div className="input">
+        <textarea
+          id="editor"
+          value={markdown}
+          onChange={(e) => {
+            setMarkdown(e.target.value);
+          }}
+        ></textarea>
+      </div>
+
+      <div className="output">
         <div
+          id="preview"
           dangerouslySetInnerHTML={{
             __html: marked(markdown),
           }}

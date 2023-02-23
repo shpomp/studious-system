@@ -9,17 +9,16 @@ body {
   align-items: center;
   justify-content: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  transition: all 0.5s ease;
 }
 
-* {
-  animation: fadeInAnimation 0.5s;
+textarea,
+.output {
+  min-height: 80vh;
+  width: 35vw;
+  margin: 10px;
+  padding: 15px;
 }
-@keyframes fadeInAnimation {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+
+.output {
+  border: gray 1px solid;
 }
